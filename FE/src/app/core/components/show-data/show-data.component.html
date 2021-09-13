@@ -1,0 +1,23 @@
+<div class="btn-div">
+  <button mat-raised-button class="btn" (click)="exportToExcel()">
+    Export To Excel
+  </button>
+</div>
+<div class="container">
+  <mat-grid-list cols="2" rowHeight="50px">
+    <mat-grid-tile class="border" id="dept">Department</mat-grid-tile>
+    <mat-grid-tile class="border" id="emp">Employees</mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="150px">
+    <div *ngFor="let dept of departments">
+      <mat-grid-tile class="border">{{ dept.name }} </mat-grid-tile>
+      <mat-grid-tile class="border">
+        <mat-grid-list cols="1">
+          <div style="margin: 7px;" *ngFor="let emp of dept.employees">
+            {{ emp.name }}
+          </div>
+        </mat-grid-list>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,24 @@
+<div class="box">
+  <div
+    dropZone
+    class="dropzone text-center"
+    (dropped)="fileDropped($event)"
+    (hovered)="changeIsHover($event)"
+    [class.hovering]="isHovering"
+  >
+    <span *ngIf="selectedFile === null"> Drop File Here </span>
+    <span *ngIf="selectedFile !== null"> File Selected </span>
+  </div>
+
+  <div>
+    <!-- <button (click)="fileUpload()">Upload</button> -->
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="fileUpload()"
+      [disabled]="selectedFile === null"
+    >
+      Upload
+    </button>
+  </div>
+</div>
